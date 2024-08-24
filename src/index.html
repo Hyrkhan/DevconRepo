@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<title>University of Batangas Public Library</title>
+
+<head>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .toplinecolor {
+            background-color: maroon;
+            width: 100%;
+            height: 5px; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .toplogoimage{
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: auto;
+            height: 8%; 
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding-right: 10%;
+            flex-grow: 1;
+        }
+        .header-navigation {
+            height: 8%;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding-right: 5%;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header-navigation-buttons {
+            height: 100%;
+            top: 10px;
+            padding-left: 15%;
+        }
+        h2#navigation-button {
+            font-weight: 100;
+        }
+        .button {
+            background-color: maroon;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+        .button:hover {
+            background-color: #b93939;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120%;
+            background-color: white; 
+            position: relative;
+        }
+        .contentbox {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+        .pathbox {  
+            height: 5%;
+            align-items: center;
+            background-color: whitesmoke;
+        }
+        ul.breadcrumb {
+            list-style: none;
+        }
+        ul.breadcrumb li {
+            display: inline;
+            font-size: 18px;
+        }
+        ul.breadcrumb li+li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+        ul.breadcrumb li a {
+            color: maroon;
+            text-decoration: none;
+        }
+        ul.breadcrumb li a:hover {
+            color: #b93939;
+            text-decoration: underline;
+        }
+        .contentbox-top {
+            flex: 0 0 auto;
+            justify-content: left;
+            align-items: left;
+            padding-left: 3%;
+            padding-right: 3%;
+            /*background-color: pink;*/
+            
+        }
+        h3#paragraph {
+            font-weight: normal;
+        }
+        .contentbox-middle {
+            height: 50%;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            flex-direction: row;
+            /*background-color: skyblue;*/
+        }
+        .contentbox-middle ul.contentbox-middle-list {
+            list-style: none;
+            padding-left: 2%;
+            padding-right: 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+        .list-button {
+            flex: 1;
+            text-align: center;
+            margin: 1%;
+            display: flex;
+            justify-content: center;
+            height: 80%;
+            border-radius: 8px;
+            background-color: maroon;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .list-button:hover {
+            background-color: #b93939;
+        }
+        .contentbox-middle ul.contentbox-middle-list li {
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .contentbox-middle ul.contentbox-middle-list li#Resources {
+            background-image: url("images/resourcesLogo.png");
+            background-size: 105% 70%;
+        }
+        .contentbox-middle ul.contentbox-middle-list li#UBwebsite {
+            background-image: url("images/UBlogo.png");
+            background-size: 90% 60%;
+        }
+        .contentbox-middle ul.contentbox-middle-list li#eBrahman {
+            background-image: url("images/BrahmanLogo.png");
+            background-size: 90% 60%;
+        }
+        .contentbox-middle ul.contentbox-middle-list li#SearchCatalog {
+            background-image: url("images/searchCatalogLogo.png");
+            background-size: 95% 65%;
+        }
+        .contentbox-middle-list-title {
+            margin-top: 7%;
+            color: gold;
+            font-size: 25px;
+        }
+        a#list-link {
+            text-decoration: none;
+            width: 100%;
+        }
+        .contentbox-bottom {
+            height: 25%;
+            padding-left: 3%;
+            padding-right: 3%;
+            display: flex;
+            justify-content: left;
+            flex-direction: column;
+            /*background-color: pink;*/
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+        }
+        .footer {
+            height: 10%;
+            display: flex;
+            align-items: center;
+        }
+        .footer ul.footer-text {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            margin-left: 0%;
+            padding-left: 0%;
+        }
+        .footer ul.footer-text li {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .footer-list-button {
+            background-color: maroon;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .footer-list-button:hover {
+            background-color: #b93939;
+        }
+        a#footer-link {
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="toplinecolor">
+    </div>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="toplogoimage">
+                <img src="images/UB-Master-Logo.png">
+            </div>
+
+            <div class="header-navigation">
+
+                <div class="header-navigation-buttons">
+                    <a href="/UB_OPAC/login.html">
+                        <h2 id="navigation-button">Login</h2>
+                    </a>
+                </div>
+
+                <div class="header-navigation-buttons">
+                    <a href="Registration.html">
+                        <button class="button">
+                            <h2 id="navigation-button">Register</h2>
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="contentbox">
+
+            <div class="pathbox">
+                <ul class="breadcrumb">
+                    <li>Home</li>
+                    <li></li>
+                  </ul>
+            </div>
+
+            <div class="contentbox-top">
+                <h2>Welcome to the University of Batangas Lipa Campus Library 
+                    Online Public Access Catalog (OPAC)!</h2>
+                <p>
+                    <h3 id="paragraph">Discover a world of academic resources at your fingertips.<br><br>
+                        At UB Lipa Campus Library OPAC, we are your gateway to a wealth of knowledge and information. 
+                        Our online catalog is designed to provide anyone and everyone with seamless 
+                        access to a vast collection of academic resources, ranging from books and journals to multimedia 
+                        materials, research papers, and more.<br><br>
+                        Whether you're embarking on a research project, seeking course materials, or simply expanding 
+                        your horizons, our OPAC is here to support your academic journey. With user-friendly search tools 
+                        and a comprehensive database, you can explore our extensive resources with ease.
+                    </h3>
+                </p>
+                
+            </div>
+
+            <div class="contentbox-middle">
+                <ul class="contentbox-middle-list">
+                    <li id="Resources" class="list-button">
+                        <a href="ResourcesPage/Resources.html" id="list-link">
+                            <div class="contentbox-middle-list-title">
+                                Resources
+                            </div>
+                        </a>
+                    </li>
+                    
+                    <li id="UBwebsite" class="list-button">
+                        <a href="https://ub.edu.ph/" id="list-link">
+                            <div class="contentbox-middle-list-title">
+                                UB Website
+                            </div>
+                        </a>
+                    </li>
+                    <li id="eBrahman" class="list-button">
+                        <a href="https://ubsd.ub.edu.ph/ebrahman/" id="list-link">
+                            <div class="contentbox-middle-list-title">
+                                eBrahman
+                            </div>
+                        </a>
+                    </li>
+                    <li id="SearchCatalog" class="list-button">
+                        <a href="SearchCatalogPage/search_catalog.html" id="list-link">
+                            <div class="contentbox-middle-list-title">
+                                Search Catalog
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="contentbox-bottom">
+                <p>
+                    <h3 id="paragraph">
+                        placeholder textplaceholder textplaceholder textplaceholder textplaceholder textplaceholder text <br>
+                        placeholder textplaceholder textplaceholder textplaceholder textplaceholder textplaceholder text
+                        placeholder textplaceholder textplaceholder textplaceholder textplaceholder textplaceholder text <br>
+                        placeholder textplaceholder textplaceholder textplaceholder textplaceholder textplaceholder text
+                    </h3>
+                </p>
+            </div>
+            
+        </div>                                       
+
+    </div>
+
+    <div class="footer">
+        <ul class="footer-text">
+            <li class="footer-list-button">
+                <a href="/UB_OPAC/SearchCatalogPage/searchcatalog.html" id="footer-link">
+                    Search Catalog Prototype
+                </a>
+            </li>
+            <li class="footer-list-button">
+                Library Information
+            </li>
+            <li class="footer-list-button">
+                Contacts Us
+            </li>
+            <li class="footer-list-button">
+                Private Policy
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
